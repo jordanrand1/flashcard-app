@@ -1,0 +1,19 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './components/App';
+import { Provider } from 'react-redux';
+import store from './store';
+import 'semantic-ui-css/semantic.min.css';
+import { initMiddleware } from 'devise-axios';
+
+initMiddleware()
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);
