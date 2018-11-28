@@ -43,6 +43,20 @@ Django version 2.1.2, using settings 'flash_cards.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
+if you get an error about the port number just make sure the settings.py file database port matches your port on pgAdmin.
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'flash_card_app_dev',
+        'USER': 'name',
+        'PASSWORD': 'pass',
+        'HOST': 'localhost',
+        'PORT': '5432', # DEFAULT FOR PGADMIN IS 5433
+    }
+}
+```
+you can find your port in pgAdmin by right-clicking on your server and clicking properties then click on the connection tab and look for the port number.
 
 #### for the React App:
 ```
