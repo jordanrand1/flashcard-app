@@ -2,10 +2,10 @@
 
 ## Set Up
 
-###requirements:
-conda or virtualenv
-npm or yarn
-postgresql and pgAdmin4+
+### requirements:
+-conda or virtualenv
+-npm or yarn
+-postgresql and pgAdmin4+
 
 ```
 conda create --name sandbox
@@ -23,9 +23,9 @@ cd flashcard-app (repo you just cloned)
 #### in pgAdmin:
 create a database called flash_card_app_dev
 create a new user (below databases, Login/Group Roles) with the following:
-  name = 'name'
-  password = 'pass'
-  privileges = can login? > on
+  -name = 'name'
+  -password = 'pass'
+  -privileges = can login? > on
   
 #### back in teminal:
 in the terminal you should be at the cloned repo (flashcard-app)
