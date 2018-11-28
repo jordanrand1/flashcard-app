@@ -12,6 +12,8 @@ import {
   Sticky,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
+import { addSet } from '../reducers/flashcardset';
+import { connect } from 'react-redux';
 
 const StyledContainer = styled(Container)`
   margin-top: 100px;
@@ -91,9 +93,8 @@ class Create extends React.Component {
     }, () => console.log('set state'))
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('submit')
+  handleSubmit = () => {
+    this.props.dispatch(addSet(this.state.title, this.state.cards))
   }
 
   createCardForms = () => {
@@ -128,7 +129,7 @@ class Create extends React.Component {
           >Create</Button>
         </Sticky>
         <Header as="h2">Create New Set</Header>
-        <Form onSubmit={this.handleSubmit}>
+        <Form>
           <Input
             placeholder="Title"
             name="title"
@@ -160,6 +161,10 @@ class Create extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return { set: state.set }
+}
+
 const styles = {
   card: {
     outline: 'none',
@@ -170,4 +175,4 @@ const styles = {
   }
 }
 
-export default Create;
+export default connect(mapStateToProps)(Create);
