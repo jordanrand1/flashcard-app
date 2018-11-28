@@ -22,7 +22,7 @@ SECRET_KEY = '&%(9!_y#ib5adil)8!0cyr5*1(7ns+s%$bjrrrpck4%yreey0i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'flash_cards',
     'corsheaders',
+    'cardset',
 ]
 
 MIDDLEWARE = [
@@ -77,11 +78,11 @@ WSGI_APPLICATION = 'flash_cards.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'flash-card',
-        'USER': 'jordan',
-        'PASSWORD': 'M@tr1x',
+        'NAME': 'flash_card_app_dev',
+        'USER': 'name',
+        'PASSWORD': 'pass',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 

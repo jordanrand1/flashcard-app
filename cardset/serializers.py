@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from todos.models import Todo
+from cardset.models import *
 
 class FlashCardSetSerializer(serializers.ModelSerializer):
     class Meta:

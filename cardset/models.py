@@ -10,7 +10,7 @@ class FlashCardSet (models.Model):
 class Card (models.Model):
     term = models.TextField
     definition = models.TextField
-    flashcard_set_id = models.ForiegnKey(FlashCardSet, on_delete=models.CASCADE)
+    flashcard_set_id = models.ForeignKey(FlashCardSet, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "%s %s" % (self.term self.definition)
+        return "%s %s" % (self.term, self.definition)
