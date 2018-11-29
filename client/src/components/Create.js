@@ -14,6 +14,7 @@ import {
 import styled from 'styled-components';
 import { addSet } from '../reducers/flashcardset';
 import { connect } from 'react-redux';
+import { setFlash } from '../reducers/flash';
 
 const StyledContainer = styled(Container)`
   margin-top: 100px;
@@ -28,11 +29,16 @@ class Create extends React.Component {
 
   state = {
     title: '',
-    numberOfCards: 5,
     cardForms: [],
     cards: [],
     visible: true,
     j: 0,
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.set !== this.props.set) {
+      this.props.history.push(`/set/${this.props.set.id}/${this.props.set.title}`)
+    }
   }
 
   handleChange = (e) => {
@@ -94,7 +100,11 @@ class Create extends React.Component {
   }
 
   handleSubmit = () => {
-    this.props.dispatch(addSet(this.state.title, this.state.cards))
+    if (this.state.j === 0) {
+      this.props.dispatch(setFlash('Please add at least 1 flash card.', 'red'))
+    } else {
+      this.props.dispatch(addSet(this.state.title, this.state.cards))
+    }
   }
 
   createCardForms = () => {
@@ -162,7 +172,7 @@ class Create extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { set: state.set }
+  return { set: state.flashcardset }
 }
 
 const styles = {

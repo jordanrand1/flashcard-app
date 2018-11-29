@@ -4,7 +4,7 @@ import Home from './Home';
 import Login from './Login';
 import Navbar from './Navbar';
 import Create from './Create';
-import { connect } from 'react-redux';
+import SetView from './SetView';
 
 const App = () => (
     <>
@@ -13,6 +13,7 @@ const App = () => (
         <Route path="/" exact component={Home} />
         <Route path="/create" exact component={Create} />
         <Route path="/login" exact component={Login} />
+        <Route path="/set/:id/:title" exact component={SetView} />
       </Switch>
     </>
 )

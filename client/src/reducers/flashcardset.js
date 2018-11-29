@@ -18,7 +18,7 @@ export const addSet = (title, cards) => {
 export default (state = {}, action) => {
   switch (action.type) {
     case ADD_SET:
-      return { set: action.set }
+      return action.set
     default:
       return state
   }
