@@ -15,9 +15,19 @@ export const addSet = (title, cards) => {
   }
 }
 
+export const getSet = (id) => {
+  return (dispatch) => {
+    axios.get(`${BASE_URL}/set/${id}`).then( res => {
+      dispatch({ type: GET_SET, set: res.data})
+    })
+  }
+}
+
 export default (state = {}, action) => {
   switch (action.type) {
     case ADD_SET:
+      return action.set
+    case GET_SET:
       return action.set
     default:
       return state
