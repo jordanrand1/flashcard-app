@@ -14,15 +14,15 @@ import json
 @parser_classes((JSONParser,))
 def flash_card_set_list(request, pk, format=None):
     try:
-        print({request})
-        flashCardSet = FlashCardSet.objects.get(pk)
+        cards = Card.objects.filter(flashcard_set_id=pk)
     except FlashCardSet.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
     if request.method == 'GET':
-        flashCardSet = FlashCardSet.objects.get(pk)
-        serializer = TodoSerializer(todos, context={'request': request}, many=True)
+        cards = Card.objects.filter(flashcard_set_id=pk)
+        print(cards)
+        serializer = CardSerializer(cards, context={'request': request}, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'DELETE':
         flashCardSet.delete()
