@@ -8,6 +8,7 @@ import {
 import { getSet } from '../reducers/flashcardset';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import StudyCard from './StudyCard';
 
 const StyledContainer = styled(Container)`
   margin-top: 100px;
@@ -39,6 +40,7 @@ class SetView extends React.Component {
           <Card style={styles.card} header='Test'/>
           <Card style={styles.card} header='Match'/>
         </Card.Group>
+        <StudyCard cards={this.props.set.flashcardset}/>
       </StyledContainer>
     )
   }
