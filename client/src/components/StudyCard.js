@@ -34,6 +34,18 @@ class StudyCard extends React.Component {
     front: true,
   }
 
+  changeCard = (num) => {
+    if (num === -1 && this.state.cardNum > 0) {
+      this.setState({
+        cardNum: this.state.cardNum + num
+      })
+    } else if (num === 1 && this.state.cardNum !== this.props.cards.length -1) {
+      this.setState({
+        cardNum: this.state.cardNum + num
+      })
+    }
+  }
+
   render() {
     const { front, cardNum } = this.state
     const { cards } = this.props
@@ -43,10 +55,10 @@ class StudyCard extends React.Component {
         <></> 
         :
         <Container>
-          <Button floated="left" icon circular size="massive" style={{marginTop: '110px', marginLeft: '30px'}}>
+          <Button floated="left" icon circular size="massive" style={{marginTop: '110px', marginLeft: '30px'}} onClick={ () => this.changeCard(-1)}>
             <Icon name="left angle"/>
           </Button>
-          <Button floated="right" icon circular size="massive" style={{marginTop: '110px', marginRight: '30px'}}>
+          <Button floated="right" icon circular size="massive" style={{marginTop: '110px', marginRight: '30px'}} onClick={ () => this.changeCard(1)}>
             <Icon name="right angle"/>
           </Button>
           <Card onClick={ () => this.setState({front: !front})}>
