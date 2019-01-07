@@ -33,12 +33,26 @@ class SetView extends React.Component {
       <StyledContainer>
         <Header as="h1">{this.props.match.params.title}</Header>
         <Card.Group itemsPerRow={4}>
-          <Link to={`${this.props}/${this.props}/study`}>
-            <Card style={styles.card} header='Study'/>
-          </Link>
-          <Card style={styles.card} header='Learn'/>
-          <Card style={styles.card} header='Test'/>
-          <Card style={styles.card} header='Match'/>
+          <Card style={styles.card} header="Study">
+            <Link to={`${this.props}/${this.props}/study`}>
+              Study
+            </Link>
+          </Card>
+          <Card style={styles.card} header="Study">
+            <Link to={`${this.props}/${this.props}/study`}>
+              Study
+            </Link>
+          </Card>
+          <Card style={styles.card} header="Study">
+            <Link to={`${this.props}/${this.props}/study`}>
+              Study
+            </Link>
+          </Card>
+          <Card style={styles.card} header="Study">
+            <Link to={`${this.props}/${this.props}/study`}>
+              Study
+            </Link>
+          </Card>
         </Card.Group>
         <StudyCard cards={this.props.set.flashcardset}/>
       </StyledContainer>
@@ -49,6 +63,8 @@ class SetView extends React.Component {
 const styles = {
   card: {
     boxShadow: '0 0 0 1px #d4d4d5, 0 4px 0 0 #2185d0, 0 1px 3px 0 #d4d4d5',
+    padding: '20px',
+    fontSize: '20px',
   }
 }
 
