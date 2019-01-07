@@ -20,6 +20,7 @@ const Card = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-color: lightgrey;
 `
 
 const CardText = styled.div`
