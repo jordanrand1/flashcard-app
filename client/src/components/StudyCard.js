@@ -38,7 +38,8 @@ class StudyCard extends React.Component {
   changeCard = (num) => {
     if (num === -1 && this.state.cardNum > 0) {
       this.setState({
-        cardNum: this.state.cardNum + num
+        cardNum: this.state.cardNum + num,
+        front: true,
       })
     } else if (num === 1 && this.state.cardNum !== this.props.cards.length -1) {
       this.setState({
