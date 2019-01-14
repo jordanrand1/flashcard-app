@@ -37,7 +37,7 @@ class Create extends React.Component {
 
   componentDidUpdate(prevProps){
     if(prevProps.set !== this.props.set) {
-      this.props.history.push(`/set/${this.props.set.id}/${this.props.set.title}`)
+      this.props.history.push(`${this.props.set.id}/${this.props.set.title}`)
     }
   }
 
